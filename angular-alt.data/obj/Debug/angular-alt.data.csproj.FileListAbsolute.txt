@@ -1,0 +1,5 @@
+C:\Users\tdbri\OneDrive\Documents\Visual Studio 2013\Projects\tdbrian.angular-alt.todo\angular-alt.data\bin\Debug\angular-alt.data.dll
+C:\Users\tdbri\OneDrive\Documents\Visual Studio 2013\Projects\tdbrian.angular-alt.todo\angular-alt.data\bin\Debug\angular-alt.data.pdb
+C:\Users\tdbri\OneDrive\Documents\Visual Studio 2013\Projects\tdbrian.angular-alt.todo\angular-alt.data\obj\Debug\angular-alt.data.csprojResolveAssemblyReference.cache
+C:\Users\tdbri\OneDrive\Documents\Visual Studio 2013\Projects\tdbrian.angular-alt.todo\angular-alt.data\obj\Debug\angular-alt.data.dll
+C:\Users\tdbri\OneDrive\Documents\Visual Studio 2013\Projects\tdbrian.angular-alt.todo\angular-alt.data\obj\Debug\angular-alt.data.pdb

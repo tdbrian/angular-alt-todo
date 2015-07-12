@@ -1,0 +1,60 @@
+﻿<section ng-controller="TodoController as todoVM">
+
+	<!-- New item header -->
+	<header id="header">
+		<h1>todos</h1>
+		<form id="todo-form" ng-submit="todoVM.addTodo()">
+			<input id="new-todo" placeholder="What needs to be done?" ng-model="todoVM.newTodo" ng-disabled="todoVM.saving" autofocus>
+		</form>
+	</header>
+
+	<!-- Items List -->
+	<section id="main" ng-show="todoVM.todos.length" ng-cloak>
+		<input id="toggle-all" type="checkbox" ng-model="todoVM.allChecked" ng-click="todoVM.markAll(allChecked)">
+		<label for="toggle-all">Mark all as complete</label>
+		<ul id="todo-list">
+			<li ng-repeat="todo in todoVM.todos | filter:statusFilter track by $index"
+				ng-class="{completed: todo.completed, editing: todo == editedTodo}">
+
+				<!-- Repeated item actions -->
+				<div class="view">
+					<input class="toggle" type="checkbox" ng-model="todo.completed" ng-change="toggleCompleted(todo)">
+					<label ng-dblclick="editTodo(todo)">{{todo.title}}</label>
+					<button class="destroy" ng-click="removeTodo(todo)"></button>
+				</div>
+
+				<!-- New item input -->
+				<form ng-submit="saveEdits(todo, 'submit')">
+					<input class="edit"
+						   ng-trim="false"
+						   ng-model="todo.title"
+						   todo-escape="todoVM.revertEdits(todo)"
+						   ng-blur="todoVM.saveEdits(todo, 'blur')"
+						   todo-focus="todo == editedTodo">
+				</form>
+			</li>
+		</ul>
+	</section>
+
+	<!-- Items statuses -->
+	<section id="footer" ng-show="todoVM.todos.length" ng-cloak>
+
+		<!-- Displays remaining count -->
+		<span id="todo-count">
+			<strong>{{todoVM.remainingCount}}</strong>
+			<ng-pluralize count="todoVM.remainingCount" when="{ one: 'item left', other: 'items left' }"></ng-pluralize>
+		</span>
+
+
+		<!-- Shows status -->
+		<ul id="filters">
+			<li><a ng-class="{selected: todoVM.status == ''} " href="#/">All</a></li>
+			<li><a ng-class="{selected: todoVM.status == 'active'}" href="#/active">Active</a></li>
+			<li><a ng-class="{selected: todoVM.status == 'completed'}" href="#/completed">Completed</a></li>
+		</ul>
+
+		<button id="clear-completed" ng-click="todoVM.clearCompletedTodos()" ng-show="todoVM.completedCount">Clear completed</button>
+
+	</section>
+
+</section>
