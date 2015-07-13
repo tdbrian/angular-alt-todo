@@ -125,6 +125,8 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.js" />
     <Content Include="Scripts\jquery.signalR-2.2.0.min.js" />
+    <Content Include="Scripts\lodash.js" />
+    <Content Include="Scripts\lodash.min.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\rx.angular.js" />
     <Content Include="Scripts\rx.angular.min.js" />
@@ -147,11 +149,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>hubs.d.ts</LastGenOutput>
     </None>
+    <TypeScriptCompile Include="Scripts\iocasts.alt\hub.provider.ts" />
+    <TypeScriptCompile Include="Scripts\iocasts.alt\alt.service.ts" />
+    <TypeScriptCompile Include="Scripts\iocasts.alt\module.ts" />
+    <TypeScriptCompile Include="Scripts\iocasts.alt\hub.service.ts" />
     <TypeScriptCompile Include="Scripts\typings\hubs.d.ts">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>hubs.tt</DependentUpon>
     </TypeScriptCompile>
+    <TypeScriptCompile Include="Scripts\typings\lodash\lodash.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\rxjs\rx-lite.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\rxjs\rx.aggregates.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\rxjs\rx.all.d.ts" />
@@ -207,7 +214,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="app\states\todos\todos.controller.ts" />
-    <TypeScriptCompile Include="app\states\todos\todos.store.ts" />
+    <TypeScriptCompile Include="app\states\todos\todos.service.ts" />
     <TypeScriptCompile Include="Scripts\typings\angular-ui-router\angular-ui-router.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\angularjs\angular-cookies.d.ts" />

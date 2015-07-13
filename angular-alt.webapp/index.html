@@ -13,8 +13,13 @@
 	<!-- scripts -->
 	<script src="Scripts/jquery-1.9.1.js"></script>
 	<script src="Scripts/angular.js"></script>
+	<script src="Scripts/lodash.js"></script>
 	<script src="Scripts/angular-ui-router.min.js"></script>
 	<script src="Scripts/jquery.signalR-2.2.0.js"></script>
+	<script src="Scripts/iocasts.alt/module.js"></script>
+	<script src="Scripts/iocasts.alt/alt.service.js"></script>
+	<script src="Scripts/iocasts.alt/hub.service.js"></script>
+	<script src="Scripts/iocasts.alt/hub.provider.js"></script>
 
 	<!-- ReSharper disable once Html.PathError -->
 	<script src="signalr/hubs"></script>
@@ -22,28 +27,14 @@
 	<!-- application -->
 	<script src="app/app.js"></script>
 	<script src="app/states/todos/todos.controller.js"></script>
-	<script src="app/states/todos/todos.store.js"></script>
+	<script src="app/states/todos/todos.service.js"></script>
 
-<script type="text/javascript">
-	$(function() {
-		var todoHub = $.connection.todosHub;
-
-		todoHub.client.broadcastMessage = function(name, message) {
-			Console.log(name, message);
-		};
-
-		$.connection.hub.logging = true;
-		$.connection.hub.start().done(function() {
-
-			todoHub.server.hello().then(function(val) {
-				console.log(val);
-				debugger;
-			});
-
+	<script type="text/javascript">
+		$(function () {
+			$.connection.hub.logging = true;
+			$.connection.hub.start().done();
 		});
-
-	});
-</script>
+	</script>
 
 </body>
 </html>

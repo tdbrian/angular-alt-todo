@@ -7,6 +7,7 @@ var Todo;
         function TodosService($alt, $hub) {
             this.$alt = $alt;
             this.$hub = $hub;
+            debugger;
             // Gets signalR hubs
             this.todoHub = $hub.hubs.todosHub.server;
             this.todoPushes = $hub.hubs.todosHub.client;
@@ -28,9 +29,10 @@ var Todo;
             this.todoHub.markComplete(matchingTodo.Id);
             this.completedMarked.onNext(this.todos);
         };
+        TodosService.$inject = ["$alt", "$hub"];
         return TodosService;
     })();
     Todo.TodosService = TodosService;
+    angular.module("todo-app").service("TodosService", TodosService);
 })(Todo || (Todo = {}));
-angular.module("todo-app").service("todosService", Todo.TodosService);
-//# sourceMappingURL=todos.store.js.map
+//# sourceMappingURL=todos.service.js.map

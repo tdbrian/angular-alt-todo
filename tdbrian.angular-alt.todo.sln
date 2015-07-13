@@ -4,8 +4,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularAlt.Todo.Webapp", "angular-alt.webapp\AngularAlt.Todo.Webapp.csproj", "{A26B381A-7ABE-4957-8871-5685B410A4E9}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9F8F29AA-E4F1-44B5-B569-27AAC3D4FDC8} = {9F8F29AA-E4F1-44B5-B569-27AAC3D4FDC8}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngularAlt.Todo.Service", "angular-alt.data\AngularAlt.Todo.Service.csproj", "{9F8F29AA-E4F1-44B5-B569-27AAC3D4FDC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C9A3FA42-7976-4C33-A1B6-E459970E6AA0}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
