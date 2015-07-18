@@ -35,3 +35,38 @@ C:\Users\tdbri\OneDrive\Documents\Visual Studio 2013\Projects\tdbrian.angular-al
 C:\Users\tdbri\OneDrive\Documents\Visual Studio 2013\Projects\tdbrian.angular-alt.todo\angular-alt.webapp\bin\Microsoft.Owin.xml
 C:\Users\tdbri\OneDrive\Documents\Visual Studio 2013\Projects\tdbrian.angular-alt.todo\angular-alt.webapp\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\tdbri\OneDrive\Documents\Visual Studio 2013\Projects\tdbrian.angular-alt.todo\angular-alt.webapp\bin\Microsoft.Owin.Security.xml
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\obj\Debug\AngularAlt.Todo.Webapp.csprojResolveAssemblyReference.cache
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\obj\Debug\AngularAltTodoWebapp.Properties.Resources.resources
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\obj\Debug\AngularAlt.Todo.Webapp.csproj.GenerateResource.Cache
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\obj\Debug\AngularAlt.Todo.Webapp.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\obj\Debug\AngularAlt.Todo.Webapp.pdb
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\AngularAlt.Todo.Webapp.dll.config
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\AngularAlt.Todo.Webapp.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\AngularAlt.Todo.Webapp.pdb
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\Microsoft.AspNet.SignalR.Core.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\Microsoft.AspNet.SignalR.SystemWeb.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\Microsoft.Owin.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\Microsoft.Owin.Security.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\MongoDB.Bson.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\MongoDB.Driver.Core.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\MongoDB.Driver.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\Newtonsoft.Json.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\Ninject.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\Owin.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\System.Net.Http.Formatting.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\System.Web.Http.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\System.Web.Http.WebHost.dll
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\Microsoft.AspNet.SignalR.Core.xml
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\Microsoft.AspNet.SignalR.SystemWeb.xml
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\Microsoft.Owin.xml
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\Microsoft.Owin.Security.xml
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\MongoDB.Bson.xml
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\MongoDB.Driver.xml
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\Newtonsoft.Json.xml
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\Ninject.xml
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\System.Net.Http.Formatting.xml
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\System.Web.Http.xml
+C:\Users\tdbri\OneDrive\IOcasts.AngularAlt.Todo\angular-alt.webapp\bin\System.Web.Http.WebHost.xml

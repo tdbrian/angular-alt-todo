@@ -64,6 +64,18 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
+    <Reference Include="MongoDB.Bson, Version=2.0.1.27, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MongoDB.Bson.2.0.1\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.0.1.27, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MongoDB.Driver.2.0.1\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.0.1.27, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MongoDB.Driver.Core.2.0.1\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
@@ -149,7 +161,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>hubs.d.ts</LastGenOutput>
     </None>
-    <TypeScriptCompile Include="Scripts\iocasts.alt\hub.provider.ts" />
     <TypeScriptCompile Include="Scripts\iocasts.alt\alt.service.ts" />
     <TypeScriptCompile Include="Scripts\iocasts.alt\module.ts" />
     <TypeScriptCompile Include="Scripts\iocasts.alt\hub.service.ts" />
@@ -195,6 +206,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Services\Todo\Todo.cs" />
+    <Compile Include="Services\Todo\TodoDto.cs" />
+    <Compile Include="Services\Todo\TodoManager.cs" />
+    <Compile Include="Services\Todo\TodoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -230,12 +245,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\angular-alt.data\AngularAlt.Todo.Service.csproj">
-      <Project>{9f8f29aa-e4f1-44b5-b569-27aac3d4fdc8}</Project>
-      <Name>AngularAlt.Todo.Service</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
