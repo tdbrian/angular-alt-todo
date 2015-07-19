@@ -9,7 +9,6 @@
     ]);
     $.connection.hub.logging = true;
     $.connection.hub.start().done(function () {
-        console.log($.connection.todosHub);
         angular.bootstrap(document, [appName]);
     }).fail(function () {
         console.error("Unable to connecto so signalR");

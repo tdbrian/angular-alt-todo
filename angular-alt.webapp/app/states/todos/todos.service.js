@@ -8,25 +8,41 @@ var Todo;
             this.$alt = $alt;
             this.$hub = $hub;
             this.todoHub = $hub.hubs.todosHub;
-            // Create Observables
+            // Create observables
             this.todoAdded = $alt.addObservable();
             this.completedMarked = $alt.addObservable();
-            // Create actions
-            this.addTodo = this.$alt.addAction(this.addingTodo);
-            this.markCompleted = this.$alt.addAction(this.markingCompleted);
-            // Catch push events
-            this.todoHub.client.todoAdded = this.addingTodo;
-            this.todoHub.client.itemMarkedComplete = this.markingCompleted;
+            this.todosReady = $alt.addObservable();
+            // Catch push observables 
+            this.todoHub.client.todoAdded = this.addTodo;
+            this.todoHub.client.itemMarkedComplete = this.markCompleted;
         }
+        // Data Requests
+        // -------------------------
+        TodosService.prototype.getTodos = function (refresh) {
+            var _this = this;
+            if (refresh === void 0) { refresh = false; }
+            if (_.isEmpty(this.todos) || refresh) {
+                this.todoHub.server.getTodos().then(function (todos) {
+                    _this.todos = todos;
+                    console.log("got new todos");
+                    console.log(todos);
+                });
+                this.todosReady.onNext(this.todos);
+            }
+            else {
+                this.todosReady.onNext(this.todos);
+                console.log("got existing todos");
+            }
+        };
         // Update on actions
         // -------------------------
-        TodosService.prototype.addingTodo = function (todo) {
+        TodosService.prototype.addTodo = function (todo) {
             this.todos.push(todo);
             this.todoHub.server.addTodo(todo);
             this.todoAdded.onNext(this.todos);
         };
-        TodosService.prototype.markingCompleted = function (todoId) {
-            var matchingTodo = _.find(this.todos, "id", todoId);
+        TodosService.prototype.markCompleted = function (todoId) {
+            var matchingTodo = _.find(this.todos, "Id", todoId);
             this.todoHub.server.markComplete(matchingTodo.Id);
             this.completedMarked.onNext(this.todos);
         };

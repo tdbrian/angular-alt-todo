@@ -12,42 +12,53 @@ module Todo {
 		// Cache
 		private todos: TodoDto[];
 
-		// Actions
-		addTodo: Rx.ReplaySubject<TodoDto>;
-		markCompleted: Rx.ReplaySubject<string>;
-
 		// Observables
 		todoAdded: Rx.ReplaySubject<TodoDto[]>;
 		completedMarked: Rx.ReplaySubject<TodoDto[]>;
+		todosReady: Rx.ReplaySubject<TodoDto[]>;
 
 		// Constructor
 		constructor(private $alt: IoCastsAlt.IAltService, private $hub: IoCastsAlt.IHubService) {
 			this.todoHub = $hub.hubs.todosHub;
 
-			// Create Observables
+			// Create observables
 			this.todoAdded = $alt.addObservable<TodoDto[]>();
 			this.completedMarked = $alt.addObservable<TodoDto[]>();
+			this.todosReady = $alt.addObservable<TodoDto[]>();
 
-			// Create actions
-			this.addTodo = this.$alt.addAction<TodoDto>(this.addingTodo);
-			this.markCompleted = this.$alt.addAction(this.markingCompleted);
+			// Catch push observables 
+			this.todoHub.client.todoAdded = this.addTodo;
+			this.todoHub.client.itemMarkedComplete = this.markCompleted;
+		}
 
-			// Catch push events
-			this.todoHub.client.todoAdded = this.addingTodo;
-			this.todoHub.client.itemMarkedComplete = this.markingCompleted;
+		// Data Requests
+		// -------------------------
+
+		getTodos(refresh: boolean = false): void {
+			if (_.isEmpty(this.todos) || refresh) {
+				this.todoHub.server.getTodos().then((todos) => {
+					this.todos = todos;
+					console.log("got new todos");
+					console.log(todos);
+				});
+				this.todosReady.onNext(this.todos);
+			} else {
+				this.todosReady.onNext(this.todos);
+				console.log("got existing todos");
+			}
 		}
 
 		// Update on actions
 		// -------------------------
 
-		private addingTodo(todo: TodoDto): void {
+		addTodo(todo: TodoDto): void {
 			this.todos.push(todo);
 			this.todoHub.server.addTodo(todo);
 			this.todoAdded.onNext(this.todos);
 		}
 
-		private markingCompleted(todoId: string): void {
-			var matchingTodo = _.find(this.todos, "id", todoId);
+		markCompleted(todoId: string): void {
+			var matchingTodo = _.find(this.todos, "Id", todoId);
 			this.todoHub.server.markComplete(matchingTodo.Id);
 			this.completedMarked.onNext(this.todos);
 		}
