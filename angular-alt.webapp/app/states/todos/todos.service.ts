@@ -7,50 +7,52 @@ module Todo {
 		static $inject = ["$alt", "$hub"];
 
 		// Hub references
-		private todoHub: TodosHubServer;
-		private todoPushes: ITodosHubClient;
+		private todoHub: TodosHub;
 
 		// Cache
 		private todos: TodoDto[];
+
+		// Actions
+		addTodo: Rx.ReplaySubject<TodoDto>;
+		markCompleted: Rx.ReplaySubject<string>;
 
 		// Observables
 		todoAdded: Rx.ReplaySubject<TodoDto[]>;
 		completedMarked: Rx.ReplaySubject<TodoDto[]>;
 
 		// Constructor
-		constructor(private $alt: any, private $hub: IoCastsAlt.IHubService) {
+		constructor(private $alt: IoCastsAlt.IAltService, private $hub: IoCastsAlt.IHubService) {
+			this.todoHub = $hub.hubs.todosHub;
 
-			debugger;
+			// Create Observables
+			this.todoAdded = $alt.addObservable<TodoDto[]>();
+			this.completedMarked = $alt.addObservable<TodoDto[]>();
 
-			// Gets signalR hubs
-			this.todoHub = $hub.hubs.todosHub.server;
-			this.todoPushes = $hub.hubs.todosHub.client;
+			// Create actions
+			this.addTodo = this.$alt.addAction<TodoDto>(this.addingTodo);
+			this.markCompleted = this.$alt.addAction(this.markingCompleted);
 
-			// Catches actions
-			this.todoAdded = $alt.addAction(this.addTodo);
-			this.completedMarked = $alt.addAction(this.markCompleted);
-
-			// Catches push events
-			this.todoPushes.todoAdded = this.addTodo;
-			this.todoPushes.itemMarkedComplete = this.markCompleted;
+			// Catch push events
+			this.todoHub.client.todoAdded = this.addingTodo;
+			this.todoHub.client.itemMarkedComplete = this.markingCompleted;
 		}
 
-		// React to store actions
+		// Update on actions
 		// -------------------------
 
-		private addTodo(todo: TodoDto) {
+		private addingTodo(todo: TodoDto): void {
 			this.todos.push(todo);
+			this.todoHub.server.addTodo(todo);
 			this.todoAdded.onNext(this.todos);
 		}
 
-		private markCompleted(todoId: string) {
+		private markingCompleted(todoId: string): void {
 			var matchingTodo = _.find(this.todos, "id", todoId);
-			this.todoHub.markComplete(matchingTodo.Id);
+			this.todoHub.server.markComplete(matchingTodo.Id);
 			this.completedMarked.onNext(this.todos);
 		}
-
 	}
-
-	angular.module("todo-app")
-		.service("TodosService", TodosService);
 }
+
+angular.module("todo-app")
+	.service("TodosService", Todo.TodosService);

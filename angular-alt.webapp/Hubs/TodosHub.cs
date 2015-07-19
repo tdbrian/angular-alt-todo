@@ -31,7 +31,6 @@ namespace AngularAltTodoWebapp.Hubs
 			_todoManager.MarkComplete(todoId);
 			Clients.Others.ItemMarkedComplete(todoId);
 		}
-
 	}
 
 	public interface ITodosHubClient

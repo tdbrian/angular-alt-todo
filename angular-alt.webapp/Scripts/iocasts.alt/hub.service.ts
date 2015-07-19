@@ -7,16 +7,15 @@ module IoCastsAlt {
 		hubs: SignalR;
 	}
 
-	class HubService {
+	export class HubService implements IHubService {
+		static $inject = [];
 		hubs: SignalR;
 
 		constructor() {
-			this.hubs = $.connection.hub;
-			debugger;
+			this.hubs = $.connection;
 		}
-
 	}
-
-	angular.module("iocasts.alt")
-		.service("$hub", HubService);
 }
+
+angular.module("iocasts.alt")
+	.service("$hub", IoCastsAlt.HubService);

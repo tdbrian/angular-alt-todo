@@ -2,10 +2,19 @@
 /// <reference path="../Scripts/typings/hubs.d.ts"/>
 (function () {
     "use strict";
-    angular.module("todo-app", [
+    var appName = "todo-app";
+    angular.module(appName, [
         "ui.router",
         "iocasts.alt"
-    ]).config(function ($stateProvider, $urlRouterProvider) {
+    ]);
+    $.connection.hub.logging = true;
+    $.connection.hub.start().done(function () {
+        console.log($.connection.todosHub);
+        angular.bootstrap(document, [appName]);
+    }).fail(function () {
+        console.error("Unable to connecto so signalR");
+    });
+    angular.module(appName).config(function ($stateProvider, $urlRouterProvider) {
         // For any unmatched url, redirect to /state1
         $urlRouterProvider.otherwise("/todos");
         $stateProvider.state("todos", {

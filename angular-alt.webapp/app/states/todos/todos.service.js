@@ -7,32 +7,33 @@ var Todo;
         function TodosService($alt, $hub) {
             this.$alt = $alt;
             this.$hub = $hub;
-            debugger;
-            // Gets signalR hubs
-            this.todoHub = $hub.hubs.todosHub.server;
-            this.todoPushes = $hub.hubs.todosHub.client;
-            // Catches actions
-            this.todoAdded = $alt.addAction(this.addTodo);
-            this.completedMarked = $alt.addAction(this.markCompleted);
-            // Catches push events
-            this.todoPushes.todoAdded = this.addTodo;
-            this.todoPushes.itemMarkedComplete = this.markCompleted;
+            this.todoHub = $hub.hubs.todosHub;
+            // Create Observables
+            this.todoAdded = $alt.addObservable();
+            this.completedMarked = $alt.addObservable();
+            // Create actions
+            this.addTodo = this.$alt.addAction(this.addingTodo);
+            this.markCompleted = this.$alt.addAction(this.markingCompleted);
+            // Catch push events
+            this.todoHub.client.todoAdded = this.addingTodo;
+            this.todoHub.client.itemMarkedComplete = this.markingCompleted;
         }
-        // React to store actions
+        // Update on actions
         // -------------------------
-        TodosService.prototype.addTodo = function (todo) {
+        TodosService.prototype.addingTodo = function (todo) {
             this.todos.push(todo);
+            this.todoHub.server.addTodo(todo);
             this.todoAdded.onNext(this.todos);
         };
-        TodosService.prototype.markCompleted = function (todoId) {
+        TodosService.prototype.markingCompleted = function (todoId) {
             var matchingTodo = _.find(this.todos, "id", todoId);
-            this.todoHub.markComplete(matchingTodo.Id);
+            this.todoHub.server.markComplete(matchingTodo.Id);
             this.completedMarked.onNext(this.todos);
         };
         TodosService.$inject = ["$alt", "$hub"];
         return TodosService;
     })();
     Todo.TodosService = TodosService;
-    angular.module("todo-app").service("TodosService", TodosService);
 })(Todo || (Todo = {}));
+angular.module("todo-app").service("TodosService", Todo.TodosService);
 //# sourceMappingURL=todos.service.js.map

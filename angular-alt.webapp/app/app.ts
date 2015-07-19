@@ -4,13 +4,24 @@
 ((): void => {
 	"use strict";
 
-	angular.module("todo-app", [
+	var appName = "todo-app";
+
+	angular.module(appName, [
 		"ui.router",
 		"iocasts.alt"
-	]).config((
-			$stateProvider: angular.ui.IStateProvider,
-			$urlRouterProvider: angular.ui.IUrlRouterProvider
-		) => {
+	]);
+
+
+	$.connection.hub.logging = true;
+	$.connection.hub.start().done(() => {
+		angular.bootstrap(document, [appName]);
+	}).fail(() => {
+		console.error("Unable to connecto so signalR");
+	});
+
+	angular.module(appName).config((
+		$stateProvider: angular.ui.IStateProvider,
+		$urlRouterProvider: angular.ui.IUrlRouterProvider) => {
 
 		// For any unmatched url, redirect to /state1
 		$urlRouterProvider.otherwise("/todos");
@@ -22,5 +33,7 @@
 			});
 
 	});
+
+
 
 })();

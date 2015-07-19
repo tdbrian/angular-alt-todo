@@ -4,11 +4,12 @@ var IoCastsAlt;
     "use strict";
     var HubService = (function () {
         function HubService() {
-            this.hubs = $.connection.hub;
-            debugger;
+            this.hubs = $.connection;
         }
+        HubService.$inject = [];
         return HubService;
     })();
-    angular.module("iocasts.alt").service("$hub", HubService);
+    IoCastsAlt.HubService = HubService;
 })(IoCastsAlt || (IoCastsAlt = {}));
+angular.module("iocasts.alt").service("$hub", IoCastsAlt.HubService);
 //# sourceMappingURL=hub.service.js.map
